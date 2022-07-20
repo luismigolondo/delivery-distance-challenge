@@ -20,12 +20,12 @@ exports.getHistorial = async (req, res, next) => {
     }
 };
 
-// @desc POST Crear un nuevo registro de busqueda.
+// @desc POST Crear un nuevo registro de puntos con distancias.
 // @route POST /api/historial
 exports.addRegistro = async (req, res, next) => {
     try {
         const registro = await Registro.create(req.body);
-
+        //El modelo de registro queda formatteado con todos los placeholders y se envia como cuerpo del request
         return res.status(200).json({
             success: true,
             data: registro

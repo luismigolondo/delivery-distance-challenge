@@ -1,3 +1,4 @@
+// @desc Hacemos uso de la api que creamos para obtener el historial e insertarlo en el HTML formato Bootstrap
 async function getHistorial() {
 	const res = await fetch('/api/historial');
 	const response = await res.json();
@@ -20,4 +21,5 @@ async function getHistorial() {
 	});
 };
 
+//Llamado sencillo al start up del documento.
 getHistorial();
