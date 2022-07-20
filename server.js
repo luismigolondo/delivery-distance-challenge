@@ -6,7 +6,9 @@ const cors = require('cors');
 const conectarBD = require('./config/database');
 
 //Primero cargamos las variables de entorno por buenas practicas y seguridad.
-dotenv.config({ path: './config/config.env' });
+dotenv.config({
+    path: './config/config.env'
+});
 
 // Conexion Base de Datos
 conectarBD();
@@ -16,6 +18,9 @@ const app = express();
 app.use(express.json());
 //Activamos el uso de CORS.
 app.use(cors());
+
+//Definimos la carpeta estatica para el front
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Rutas
 app.use('/api/historial', require('./routes/historial'))
